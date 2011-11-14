@@ -1,0 +1,80 @@
+NAME
+    Amon2::Lite - Sinatra-ish
+
+SYNOPSIS
+        use Amon2::Lite;
+
+        get '/' => sub {
+            my ($c) = @_;
+            return $c->render('index.tt');
+        };
+
+        __PACKAGE__->to_app();
+
+        __DATA__
+
+        @@ index.tt
+        <!doctype html>
+        <html>
+            <body>Hello</body>
+        </html>
+
+DESCRIPTION
+    This is a Sinatra-ish wrapper for Amon2.
+
+    THIS MODULE IS BETA STATE. API MAY CHANGE WITHOUT NOTICE.
+
+FUNCTIONS
+    any(\@methods, $path, \&code)
+    any($path, \&code)
+        Register new route for router.
+
+    get($path, $code->($c))
+        Register new route for router.
+
+    post($path, $code->($c))
+        Register new route for router.
+
+    __PACKAGE__->load_plugin($name, \%opts)
+        Load a plugin to the context object.
+
+    __PACKAGE__->to_app()
+        Create new PSGI application instance.
+
+FAQ
+    How can I configure the options for Xslate?
+        You can provide a constructor arguments by configuration. Write
+        following lines on your app.psgi.
+
+            sub config {
+                +{
+                    'Text::Xslate' => {
+                        syntax => 'Kolon'
+                    }
+                }
+            }
+
+    How can I use other template engines instead of Text::Xslate?
+        You can use any template engine with Amon2::Lite. You can overwrite
+        create_view method same as normal Amon2.
+
+        This is a example to use Text::MicroTemplate::File.
+
+            use Tiffany::Text::MicroTemplate::File;
+
+            sub create_view {
+                Tiffany::Text::MicroTemplate::File->new(+{
+                    include_path => ['./tmpl/']
+                })
+            }
+
+AUTHOR
+    Tokuhiro Matsuno <tokuhirom AAJKLFJEF@ GMAIL COM>
+
+SEE ALSO
+LICENSE
+    Copyright (C) Tokuhiro Matsuno
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+

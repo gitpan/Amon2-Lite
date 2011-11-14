@@ -1,0 +1,58 @@
+{
+   "abstract" : "Sinatra-ish",
+   "author" : [
+      "Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112621",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Amon2-Lite",
+   "no_index" : {
+      "directory" : [
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : "0.98",
+            "Test::Requires" : 0
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Amon2" : "3.25",
+            "Data::Section::Simple" : "0.03",
+            "perl" : "5.008008"
+         }
+      }
+   },
+   "provides" : {
+      "Amon2::Lite" : {
+         "file" : "lib/Amon2/Lite.pm",
+         "version" : "0.01"
+      },
+      "Amon2::Setup::Flavor::Lite" : {
+         "file" : "lib/Amon2/Setup/Flavor/Lite.pm",
+         "version" : 0
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ]
+   },
+   "version" : "0.01"
+}
