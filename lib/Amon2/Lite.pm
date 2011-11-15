@@ -2,12 +2,12 @@ package Amon2::Lite;
 use strict;
 use warnings;
 use 5.008008;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use parent qw/Amon2 Amon2::Web/;
 use Router::Simple 0.04;
 use Text::Xslate;
-use Text::Xslate::Bridge::Star;
+use Text::Xslate::Bridge::TT2Like;
 use File::Spec;
 use File::Basename qw(dirname);
 use Data::Section::Simple ();
@@ -75,7 +75,7 @@ sub import {
         my $config = $caller->config->{'Text::Xslate'} || +{};
         my $xslate = Text::Xslate->new(+{
             'syntax'   => 'TTerse',
-            'module'   => [ 'Text::Xslate::Bridge::Star' ],
+            'module'   => [ 'Text::Xslate::Bridge::TT2Like' ],
             'path'     => [ $vpath, $tmpl_dir ],
             'function' => {
                 c        => sub { Amon2->context() },
