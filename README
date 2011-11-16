@@ -46,13 +46,9 @@ FAQ
         You can provide a constructor arguments by configuration. Write
         following lines on your app.psgi.
 
-            sub config {
-                +{
-                    'Text::Xslate' => {
-                        syntax => 'Kolon'
-                    }
-                }
-            }
+            __PACKAGE__->template_options(
+                syntax => 'Kolon',
+            );
 
     How can I use other template engines instead of Text::Xslate?
         You can use any template engine with Amon2::Lite. You can overwrite
