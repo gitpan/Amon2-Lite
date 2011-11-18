@@ -64,6 +64,13 @@ FAQ
                 })
             }
 
+    How can I handle static files?
+        If you pass the 'handle_static' option to 'to_app' method,
+        Amon2::Lite handles /static/ path to ./static/ directory.
+
+            use Amon2::Lite;
+            __PACKAGE__->to_app(handle_static => 1);
+
 AUTHOR
     Tokuhiro Matsuno <tokuhirom AAJKLFJEF@ GMAIL COM>
 

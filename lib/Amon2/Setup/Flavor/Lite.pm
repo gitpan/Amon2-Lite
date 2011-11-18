@@ -45,22 +45,18 @@ __PACKAGE__->add_trigger(
 );
 
 # load plugins
-__PACKAGE__->load_plugins(
-    'Web::CSRFDefender',
-);
+__PACKAGE__->load_plugin('Web::CSRFDefender');
+# __PACKAGE__->load_plugin('Web::FillInFormLite');
+# __PACKAGE__->load_plugin('Web::JSON');
 
 use Plack::Session::State::Cookie;
 builder {
-    enable 'Plack::Middleware::Static',
-        path => qr{^(?:/static/|/robot\.txt$|/favicon\.ico$)},
-        root => File::Spec->catdir(dirname(__FILE__));
-    enable 'Plack::Middleware::ReverseProxy';
     enable 'Plack::Middleware::Session',
         state => Plack::Session::State::Cookie->new(
             httponly => 1,
         );
 
-    __PACKAGE__->to_app();
+    __PACKAGE__->to_app(handle_static => 1);
 };
 
 __DATA__
@@ -90,12 +86,7 @@ WriteMakefile(
         'Amon2'                           => '<% $amon2_version %>',
         'Amon2::Lite'                     => '<% $amon2_lite_version %>',
         'Text::Xslate'                    => '1.5006',
-        'Time::Piece'                     => '1.20',
-        'HTML::FillInForm::Lite'          => '1.09',
         'Plack::Session'                  => '0.14',
-        'Plack::Middleware::ReverseProxy' => '0.10',
-        'JSON'                            => 2,
-        'Data::Section::Simple'           => '0.03',
     },
     MIN_PERL_VERSION => '5.008001',
     (-d 'xt' and $ENV{AUTOMATED_TESTING} || $ENV{RELEASE_TESTING}) ? (
