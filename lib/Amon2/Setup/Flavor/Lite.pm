@@ -21,14 +21,22 @@ use File::Spec;
 use File::Basename;
 use lib File::Spec->catdir(dirname(__FILE__), 'extlib', 'lib', 'perl5');
 use lib File::Spec->catdir(dirname(__FILE__), 'lib');
-use Plack::Builder;
 use Amon2::Lite;
 
 our $VERSION = '0.01';
 
 # put your configuration here
-sub config {
+sub load_config {
+    my $c = shift;
+
+    my $mode = $c->mode_name || 'development';
+
     +{
+        'DBI' => [
+            'dbi:SQLite:dbname=$mode.db',
+            '',
+            '',
+        ],
     }
 }
 
@@ -37,29 +45,14 @@ get '/' => sub {
     return $c->render('index.tt');
 };
 
-# for your security
-__PACKAGE__->add_trigger(
-    AFTER_DISPATCH => sub {
-        my ( $c, $res ) = @_;
-        $res->header( 'X-Content-Type-Options' => 'nosniff' );
-        $res->header( 'X-Frame-Options' => 'DENY' );
-    },
-);
-
 # load plugins
 __PACKAGE__->load_plugin('Web::CSRFDefender');
+# __PACKAGE__->load_plugin('DBI');
 # __PACKAGE__->load_plugin('Web::FillInFormLite');
 # __PACKAGE__->load_plugin('Web::JSON');
 
-use Plack::Session::State::Cookie;
-builder {
-    enable 'Plack::Middleware::Session',
-        state => Plack::Session::State::Cookie->new(
-            httponly => 1,
-        );
-
-    __PACKAGE__->to_app(handle_static => 1);
-};
+__PACKAGE__->enable_session();
+__PACKAGE__->to_app(handle_static => 1);
 
 __DATA__
 
@@ -71,11 +64,9 @@ __DATA__
     <title><% $module %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script type="text/javascript" src="[% uri_for('/static/js/main.js') %]"></script>
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
-    <style>
-    </style>
-    <script type="text/javascript">
-    </script>
+    <link rel="stylesheet" href="[% uri_for('/static/css/main.css') %]">
 </head>
 <body>
     <div class="container">
@@ -87,6 +78,13 @@ __DATA__
     </div>
 </body>
 </html>
+
+@@ /static/js/main.js
+
+@@ /static/css/main.css
+footer {
+    text-align: right;
+}
 ...
 
     $self->write_file('Makefile.PL', <<'...');

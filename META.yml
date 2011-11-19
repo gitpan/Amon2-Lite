@@ -1,5 +1,5 @@
 ---
-abstract: Sinatra-ish
+abstract: 'Sinatra-ish framework on Amon2!'
 author:
   - 'Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>'
 build_requires:
@@ -20,7 +20,7 @@ no_index:
 provides:
   Amon2::Lite:
     file: lib/Amon2/Lite.pm
-    version: 0.05
+    version: 0.06
   Amon2::Setup::Flavor::Lite:
     file: lib/Amon2/Setup/Flavor/Lite.pm
     version: 0.01
@@ -32,4 +32,4 @@ requires:
   perl: 5.008008
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.05
+version: 0.06
