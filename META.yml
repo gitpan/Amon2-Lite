@@ -20,10 +20,10 @@ no_index:
 provides:
   Amon2::Lite:
     file: lib/Amon2/Lite.pm
-    version: 0.04
+    version: 0.05
   Amon2::Setup::Flavor::Lite:
     file: lib/Amon2/Setup/Flavor/Lite.pm
-    version: 0
+    version: 0.01
 requires:
   Amon2: 3.25
   Data::Section::Simple: 0.03
@@ -32,4 +32,4 @@ requires:
   perl: 5.008008
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.04
+version: 0.05

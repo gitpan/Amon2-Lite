@@ -71,6 +71,10 @@ FAQ
             use Amon2::Lite;
             __PACKAGE__->to_app(handle_static => 1);
 
+    Where is a example codes?
+        There is a tiny TinyURL example:
+        <https://github.com/tokuhirom/MyTinyURL/blob/master/app.psgi>.
+
 AUTHOR
     Tokuhiro Matsuno <tokuhirom AAJKLFJEF@ GMAIL COM>
 

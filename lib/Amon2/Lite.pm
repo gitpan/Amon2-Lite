@@ -2,7 +2,7 @@ package Amon2::Lite;
 use strict;
 use warnings;
 use 5.008008;
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use parent qw/Amon2 Amon2::Web/;
 use Router::Simple 0.04;
@@ -239,6 +239,10 @@ If you pass the 'handle_static' option to 'to_app' method, Amon2::Lite handles /
 
     use Amon2::Lite;
     __PACKAGE__->to_app(handle_static => 1);
+
+=item Where is a example codes?
+
+There is a tiny TinyURL example: L<https://github.com/tokuhirom/MyTinyURL/blob/master/app.psgi>.
 
 =back
 

@@ -43,11 +43,11 @@
    "provides" : {
       "Amon2::Lite" : {
          "file" : "lib/Amon2/Lite.pm",
-         "version" : "0.04"
+         "version" : "0.05"
       },
       "Amon2::Setup::Flavor::Lite" : {
          "file" : "lib/Amon2/Setup/Flavor/Lite.pm",
-         "version" : 0
+         "version" : "0.01"
       }
    },
    "release_status" : "stable",
@@ -56,5 +56,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.04"
+   "version" : "0.05"
 }

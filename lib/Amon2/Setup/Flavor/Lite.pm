@@ -24,6 +24,8 @@ use lib File::Spec->catdir(dirname(__FILE__), 'lib');
 use Plack::Builder;
 use Amon2::Lite;
 
+our $VERSION = '0.01';
+
 # put your configuration here
 sub config {
     +{
@@ -68,9 +70,21 @@ __DATA__
     <met charst="utf-8">
     <title><% $module %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <style>
+    </style>
+    <script type="text/javascript">
+    </script>
 </head>
 <body>
-    <% $module %>
+    <div class="container">
+        <header><h1><% $module %></h1></header>
+        <section class="row">
+            This is a <% $module %>
+        </section>
+        <footer>Powered by <a href="http://amon.64p.org/">Amon2::Lite</a></footer>
+    </div>
 </body>
 </html>
 ...
@@ -154,6 +168,23 @@ use Test::More;
 eval "use Test::Pod 1.00";
 plan skip_all => "Test::Pod 1.00 required for testing POD" if $@;
 all_pod_files_ok();
+...
+
+    $self->write_file('.gitignore', <<'...');
+Makefile
+inc/
+MANIFEST
+*.bak
+*.old
+nytprof.out
+nytprof/
+*.db
+blib/
+pm_to_blib
+META.json
+META.yml
+MYMETA.json
+MYMETA.yml
 ...
 }
 
