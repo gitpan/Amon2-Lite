@@ -2,7 +2,7 @@ package Amon2::Lite;
 use strict;
 use warnings;
 use 5.008008;
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use parent qw/Amon2 Amon2::Web/;
 use Router::Simple 0.04;
@@ -107,8 +107,7 @@ sub import {
             my ($methods, $pattern, $code) = @_;
             $router->connect(
                 $pattern,
-                {code => $code},
-                { method => [ map { uc $_ } @$methods ] }
+                {code => $code, method => [ map { uc $_ } @$methods ]},
             );
         } else {
             my ($pattern, $code) = @_;
@@ -130,10 +129,14 @@ sub import {
     *{"${base_class}\::dispatch"} = sub {
         my ($c) = @_;
         if (my $p = $router->match($c->request->env)) {
-            for my $method ( @{ $p->{method} } ) {
-                if ( $method eq $c->request->env->{REQUEST_METHOD} ) {
-                    return $p->{code}->( $c, $p );
+            if ($p->{method}) {
+                for my $method ( @{ $p->{method} } ) {
+                    if ( $method eq $c->request->env->{REQUEST_METHOD} ) {
+                        return $p->{code}->( $c, $p );
+                    }
                 }
+            } else {
+                return $p->{code}->( $c, $p );
             }
             my $content = '405 Method Not Allowed';
             return $c->create_response(
