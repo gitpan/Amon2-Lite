@@ -4,7 +4,7 @@
       "Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112621",
+   "generated_by" : "Module::Build version 0.4001, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -22,7 +22,7 @@
       "build" : {
          "requires" : {
             "Test::More" : "0.98",
-            "Test::Requires" : 0
+            "Test::Requires" : "0"
          }
       },
       "configure" : {
@@ -43,7 +43,7 @@
    "provides" : {
       "Amon2::Lite" : {
          "file" : "lib/Amon2/Lite.pm",
-         "version" : "0.07"
+         "version" : "0.08"
       },
       "Amon2::Setup::Flavor::Lite" : {
          "file" : "lib/Amon2/Setup/Flavor/Lite.pm",
@@ -56,5 +56,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.07"
+   "version" : "0.08"
 }

@@ -52,6 +52,7 @@ __PACKAGE__->load_plugin('Web::CSRFDefender');
 # __PACKAGE__->load_plugin('Web::JSON');
 
 __PACKAGE__->enable_session();
+
 __PACKAGE__->to_app(handle_static => 1);
 
 __DATA__
@@ -60,7 +61,7 @@ __DATA__
 <!doctype html>
 <html>
 <head>
-    <met charst="utf-8">
+    <meta charset="utf-8">
     <title><% $module %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
