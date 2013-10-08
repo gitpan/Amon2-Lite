@@ -4,8 +4,10 @@
       "Tokuhiro Matsuno <tokuhirom AAJKLFJEF@ GMAIL COM>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.5.6",
-   "license" : "perl_5",
+   "generated_by" : "Minilla/v0.7.0",
+   "license" : [
+      "perl_5"
+   ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
@@ -49,7 +51,7 @@
             "Plack::Middleware::Session" : "0",
             "Plack::Session::State::Cookie" : "0",
             "Router::Simple" : "0.13",
-            "Text::Xslate" : "0",
+            "Text::Xslate" : "2.0010",
             "Text::Xslate::Bridge::TT2Like" : "0.00010",
             "parent" : "0",
             "perl" : "5.008008"
@@ -72,11 +74,11 @@
    "provides" : {
       "Amon2::Lite" : {
          "file" : "lib/Amon2/Lite.pm",
-         "version" : "0.10"
+         "version" : "0.11"
       },
       "Amon2::Setup::Flavor::Lite" : {
          "file" : "lib/Amon2/Setup/Flavor/Lite.pm",
-         "version" : "0.10"
+         "version" : "0.11"
       }
    },
    "release_status" : "stable",
@@ -90,7 +92,7 @@
          "web" : "https://github.com/tokuhirom/Amon2-Lite"
       }
    },
-   "version" : "0.10",
+   "version" : "0.11",
    "x_contributors" : [
       "Syohei YOSHIDA <syohex@gmail.com>",
       "tokuhirom <tokuhirom@gmail.com>"
