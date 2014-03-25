@@ -4,7 +4,7 @@
       "Tokuhiro Matsuno <tokuhirom AAJKLFJEF@ GMAIL COM>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.7.0",
+   "generated_by" : "Minilla/v0.12.0",
    "license" : [
       "perl_5"
    ],
@@ -21,7 +21,8 @@
          "share",
          "eg",
          "examples",
-         "author"
+         "author",
+         "builder"
       ]
    },
    "prereqs" : {
@@ -67,18 +68,20 @@
             "Plack::Test" : "0",
             "Plack::Util" : "0",
             "Test::More" : "0.98",
-            "Test::Requires" : "0"
+            "Test::Requires" : "0",
+            "Test::WWW::Mechanize" : "0",
+            "Tiffany" : "0"
          }
       }
    },
    "provides" : {
       "Amon2::Lite" : {
          "file" : "lib/Amon2/Lite.pm",
-         "version" : "0.11"
+         "version" : "0.12"
       },
       "Amon2::Setup::Flavor::Lite" : {
          "file" : "lib/Amon2/Setup/Flavor/Lite.pm",
-         "version" : "0.11"
+         "version" : "0.12"
       }
    },
    "release_status" : "stable",
@@ -92,9 +95,11 @@
          "web" : "https://github.com/tokuhirom/Amon2-Lite"
       }
    },
-   "version" : "0.11",
+   "version" : "0.12",
    "x_contributors" : [
       "Syohei YOSHIDA <syohex@gmail.com>",
-      "tokuhirom <tokuhirom@gmail.com>"
+      "Kosuke Asami <tfortress58@gmail.com>",
+      "moznion <moznion@gmail.com>",
+      "Tokuhiro Matsuno <tokuhirom@gmail.com>"
    ]
 }

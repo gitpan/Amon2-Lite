@@ -24,7 +24,7 @@ use lib File::Spec->catdir(dirname(__FILE__), 'extlib', 'lib', 'perl5');
 use lib File::Spec->catdir(dirname(__FILE__), 'lib');
 use Amon2::Lite;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 # put your configuration here
 sub load_config {
@@ -34,7 +34,7 @@ sub load_config {
 
     +{
         'DBI' => [
-            'dbi:SQLite:dbname=$mode.db',
+            "dbi:SQLite:dbname=$mode.db",
             '',
             '',
         ],
